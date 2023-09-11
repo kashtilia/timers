@@ -1,4 +1,4 @@
-import knexConfig from "./knexfile.js";
+import knexConfig from "../knexfile.js";
 import knexFn from "knex";
 
 const knex = knexFn(knexConfig);
