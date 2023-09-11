@@ -38,6 +38,22 @@ const clients = new Map();
 app.use("/", routerAuth);
 app.use("/", routerTimers);
 
+app.get('*', (req, res) => {
+  res.send('<!DOCTYPE html>\n' +
+    '<html lang="en">\n' +
+    '<head>\n' +
+    '  <meta charset="UTF-8">\n' +
+    '  <meta name="viewport"\n' +
+    '        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">\n' +
+    '  <meta http-equiv="X-UA-Compatible"\n' +
+    '        content="ie=edge">\n' +
+    '  <title>Timers API</title>\n' +
+    '</head>\n' +
+    '<body>\n' +
+    '\n' + req +
+    '</body>\n' +
+    '</html>\n');
+});
 
 // Событие запроса смены (апгрейда) протокола соединения на веб-сокет
 server.on("upgrade", async (req, socket, head) => {
