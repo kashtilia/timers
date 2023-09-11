@@ -9,10 +9,11 @@
   "scripts": {
     "start": "cross-env npm run db:migrate && node index.js",
     "dev": "killall node && cross-env npm run db:migrate && nodemon index.js -e js,njk",
-    "db:migrate": "knex migrate:latest"
+    "db:migrate": "knex migrate:latest",
+    "build": ""
   },
   "engines": {
-    "node": ">=18.0.0"
+    "node": ">=16.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
