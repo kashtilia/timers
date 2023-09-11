@@ -21,6 +21,7 @@ const clients = new Map();
 app.use("/", routerAuth);
 app.use("/", routerTimers);
 
+
 // Событие запроса смены (апгрейда) протокола соединения на веб-сокет
 server.on("upgrade", async (req, socket, head) => {
   const token = getToken(req);
