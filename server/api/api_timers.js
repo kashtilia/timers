@@ -1,7 +1,7 @@
 import { db } from "./api_database.js";
 import express from "express";
 import { authMW } from "./api_auth.js";
-import { wsSendTimers } from "./index.js";
+import { wsSendTimers } from "./server.js";
 
 export const router = express.Router();
 

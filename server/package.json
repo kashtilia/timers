@@ -7,8 +7,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "cross-env npm run db:migrate && node index.js",
-    "dev": "killall node && cross-env npm run db:migrate && nodemon index.js -e js,njk",
+    "start": "cross-env npm run db:migrate && node api/server.js",
+    "dev": "killall node && cross-env npm run db:migrate && nodemon api/server.js -e js,njk",
     "db:migrate": "knex migrate:latest",
     "build": "npm i"
   },
