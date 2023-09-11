@@ -1,11 +1,28 @@
 import express from "express";
 import { db } from "./api_database.js";
 import http from "http";
+import compression from 'compression';
+import helmet from 'helmet';
 import { WebSocketServer } from "ws";
 import { router as routerAuth, getToken, verifyToken } from "./api_auth.js";
 import { router as routerTimers } from "./api_timers.js";
+import crypto from "crypto";
 
 const app = express();
+const generateNonce = () => crypto.randomBytes(16).toString('base64');
+const nonce = generateNonce();
+
+app.use(compression());
+app.use(helmet());
+
+app.use((req, res, next) => {
+  res.setHeader(
+    'Content-Security-Policy',
+    `script-src 'self' 'nonce-${nonce}'; script-src-elem 'self' https://vercel.live 'nonce-${nonce}';`,
+  );
+  next();
+});
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 

@@ -93,5 +93,5 @@ router.get("/logout", authMW(), async (req, res) => {
     await db.addTokenToBlackList(req.token);
     res.clearCookie("auth_token");
   }
-  return res.json({});
+  return res.json({test: "test"});
 });
